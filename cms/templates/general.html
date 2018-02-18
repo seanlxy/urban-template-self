@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]><html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--><html class="no-js"> <!--<![endif]-->
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<title>Website Admin</title>
+		<meta name="viewport" content="width=device-width">
+		
+		<link rel="shortcut icon" href="==root==/favicon.ico?v=1">
+		
+		<link href="==root==/css/bootstrap.min.css" rel="stylesheet">
+		<link href="==root==/css/font-awesome.css" rel="stylesheet">
+		<link href="==root==/css/tipsy.css" rel="stylesheet">
+		<link href="==root==/css/jquery.checkbox.css" rel="stylesheet">
+		<link href="==root==/css/jquery-ui-1.10.4.custom.min.css" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Oxygen:400,700,300" rel="stylesheet" type="text/css">
+		<link href="==root==/css/styles_dark.css" rel="stylesheet">
+		==styles-ext==
+
+		<!-- Always leave these files in the head section  -->
+		<script>var jsVars = ==jsVars==;</script>
+		<script src="==root==/js/modernizr-2.8.2.min.js"></script>
+		<script src="==root==/ckeditor/ckeditor.js"></script>
+		<script src="==root==/js/libs/vendor.js"></script>
+	</head>
+
+	<body>
+		<aside class="col-xs-12 col-md-2 bg" id="main-nav-holder">
+			<div id="logo_wrap">
+				<img src="==root==/images/logo.png" id="logo" alt="" style="margin:15px 0 0;"/>
+			</div>
+			<div id="filter-bar">
+				<div class="input-group custom-search-form">
+                    <input type="text" class="form-control" placeholder="Filter..." id="filter-nav"==data_disabled==>
+                    <span class="input-group-btn">
+                    <button class="btn btn-default" type="button" id="search-btn"==data_disabled==>
+                        <i class="fa fa-search"></i>
+                    </button>
+                </span>
+                </div>
+			</div>
+			<nav class="main-nav" role="navigation">
+				==a_main_menu==
+			</nav><!-- /nav -->
+		</aside>
+		<div id="container">
+			
+			<header id="header_wrap">
+				<div class="col-xs-12 col-md-2">
+					
+					<div class="clear"></div>
+				</div>
+				<div class="col-xs-12 col-md-10">
+					<div id="loggedin" class="pull-right">
+						==user_loggedin==
+					</div>
+					<div class="clear"></div>
+				</div>
+			</header><!-- /header -->
+			<div id="module-actions">
+				<div class="col-xs-12 col-md-10 col-md-10 col-md-offset-2">
+					<div>
+						==main_heading==
+						==main_subheading==
+					</div>
+					<nav>
+						<table width="1000" border="0" align="left" cellpadding="0" cellspacing="0" >
+							<tr>
+								<td height="41" valign="top" >
+									<table width="998" border="0" align="center" cellpadding="0" cellspacing="0">
+										<tr>
+											<td valign="top" style="padding-top:2px;">==page_functions==</td>
+										</tr>
+									</table>
+								</td>
+							</tr>
+						</table>
+					</nav><!-- /nav(functions) -->
+				</div>
+			</div>
+			<div class="content-wrapper==content_cls==">
+				<div class="col-xs-12 col-md-10 col-md-10 col-md-offset-2">
+					<main class="inner">
+						<table width="1100" border="0" align="left" cellpadding="0" cellspacing="0" style="margin-top:-5px;">
+							<tr>
+								<td width="1100" valign="top" >
+									<table width="100%" height="100%"  border="0" cellpadding="0" cellspacing="0">
+										<tr valign="top" >
+											<td>
+												<div>==a_page_contents==</div>
+											</td>
+										</tr>
+									</table>
+								</td>
+							</tr>
+						</table>
+					</main><!-- /main -->
+				</div>
+					<div class="clear"></div>
+			</div>
+			<div id="push"></div>
+			<!--<footer id="footer">
+				<div class="col-xs-12">
+					<p>==copyright==</p>
+				</div>
+			</footer> /footer -->
+		</div>
+
+		<!--  javascript libraries and scripts-->
+		<script src="==root==/js/script.js" async onload="app.init({baseUrl:'==root=='})"></script>
+		<script>
+			$(function(){
+				var contentTabs = $("#tabs");
+				contentTabs.tabs({
+				tabTemplate: '<li><a href="#{href}">#{label}</a> <span class="ui-icon ui-icon-close">Remove Section</span></li>',
+				add: function(event, ui){
+					var tab_content = ==tab-content==
+						$(ui.panel).append(tab_content);
+					}
+				});
+
+				$('.onoffcheckbox').checkbox({
+					cls:'jquery-checkbox',
+					empty:'css/images/empty.png'
+			    });
+				$('.tooltip').tipsy({gravity: 'w', fade: true });
+
+				$('#checkall').click(function () {
+				    $('.checkall').attr('checked', this.checked);
+				});
+				$(window).keypress(function(event) {
+				    if (!(event.which == 115 && event.ctrlKey)) return true;
+				    submitForm('save',1);
+				    event.preventDefault();
+				    return false;
+				});
+
+				// $('[data-toggle="tooltip"]').tooltip()
+
+			});
+			$(function(){
+				jQuery.expr[':'].Contains = function(a, i, m) { 
+				  return jQuery(a).text().toUpperCase().indexOf(m[3].toUpperCase()) >= 0; 
+				};
+				$('#filter-nav').on('keyup change', function(){
+					var self = $(this),
+					value = self.val();
+					if(value)
+					{
+						$('.main-nav ul li').hide();
+						$('.main-nav ul li:Contains('+value+')').show();
+						$('#search-btn').addClass('searching');
+						$('#search-btn i').removeClass('fa-search').addClass('fa-times');
+					}
+					else
+					{
+						$('.main-nav ul li').show();
+						$('#search-btn').removeClass('searching');
+						$('#search-btn i').removeClass('fa-times').addClass('fa-search');
+					}
+				});
+
+				$('#search-btn').on('click', function(){
+					var self = $(this);
+					boolCls = 'searching';
+					if(self.hasClass(boolCls))
+					{
+						$('#filter-nav').val('');
+						$('.main-nav ul li').show();
+						$('#search-btn').removeClass('searching');
+						$('#search-btn i').removeClass('fa-times').addClass('fa-search');
+					}
+				});
+
+				if($('.checkall').length)
+				{
+					$('.checkall').on('change', function(){
+						var self = $(this),
+						isChecked = self.is(':checked');
+
+						if(isChecked)
+						{
+							self.parents('tr').addClass('selected');
+						}
+						else
+						{
+							self.parents('tr').removeClass('selected');
+						}
+					});
+				}
+
+				$('.check-max').on('keyup', function(){
+					var self = $(this),
+					maxChars = parseInt(self.prop('maxlength')),
+					currentChars = parseInt(self.val().length);
+					self.siblings('span.text-muted').find('em').text(' - '+currentChars+' character'+((currentChars > 1) ? 's' : '')+' typed');
+					
+				});
+
+				$('.check-max').trigger('keyup');
+
+
+				$('.item-url').keyup(function(e){
+
+		            var val = $(this).val();
+
+		            var params = 'action=check-url&url='+val+'&currUrl='+$(this).data('cvalue');
+
+		            $.post(jsVars.baseUrl+'/ajax/service.php',params,function(data){
+		                var message     = data.message;
+		                var valid       = data.valid;
+
+		                if(!valid)
+		                {
+		                    $('#page_url_msg').html(message);
+
+		                    $('#pg-save').removeAttr('onclick').css({'opacity':0.5});
+		                    $('#pg-save').unbind('click');
+		                }
+		                else
+		                {
+		                    $('#page_url_msg').html('');
+
+		                    $('#pg-save').bind('click', function(){
+		                        submitForm('save',1);
+		                    });
+
+		                    $('#pg-save').css({'opacity':1});
+		                }
+		            }, 'json');
+
+		        });
+
+		        if( $('.alert.alert-warning').length )
+		        {
+		        	setTimeout(function(){
+		        		$('.alert.alert-warning').fadeOut(400, function(){
+		        			$(this).remove();
+		        		});
+		        	}, 10000);
+		        }
+
+		        
+
+			});
+		$(function () {
+	        $('#webfont1').wfselect({ 
+	          fonts: {
+	            google: {
+	              families: [
+	              {name: 'Merriweather', url: null}, 
+	              {name: 'Droid Serif', url: null}, 
+	              {name: 'Noto Sans', url: null},
+	              {name: 'Playfair Display', url: null},
+	              {name: 'Raleway', url: null},
+	              {name: 'Oxygen', url: null},
+	              {name: 'PT Serif', url: null},
+	              {name: 'PT Sans', url: null},
+	              {name: 'Ubuntu', url: null},
+	              {name: 'Abril Fatface', url: null},
+	              {name: 'Vollkorn', url: null},
+	              {name: 'Lato', url: null},
+	              {name: 'Arvo', url: null},
+	              {name: 'Roboto', url: null}
+	              ], 
+	              url_generation: {base_url: 'https://fonts.googleapis.com/css?family=$font', space_char: '+'}
+	            }
+	          },
+	          load_all_fonts: true,
+	          default_font_name: {type: 'google', name: 'Merriweather'}
+	        }).bind('wfselectchange', function (event, fontInfo){
+	          console.log(event);
+	          $('p.webfont-preview-1').css(fontInfo);
+	          console.log(fontInfo['font-family']);
+	        }).bind('wfselectdefault', function(event, fontInfo){
+	          console.log('default font url loaded');
+	        });
+	      });
+	      $(function () {
+	        $('#webfont2').wfselect({ 
+	          fonts: {
+	            google: {
+	              families: [
+	              {name: 'Merriweather', url: null}, 
+	              {name: 'Droid Serif', url: null}, 
+	              {name: 'Noto Sans', url: null},
+	              {name: 'Playfair Display', url: null},
+	              {name: 'Raleway', url: null},
+	              {name: 'Oxygen', url: null},
+	              {name: 'PT Serif', url: null},
+	              {name: 'PT Sans', url: null},
+	              {name: 'Ubuntu', url: null},
+	              {name: 'Abril Fatface', url: null},
+	              {name: 'Vollkorn', url: null},
+	              {name: 'Lato', url: null},
+	              {name: 'Arvo', url: null},
+	              {name: 'Roboto', url: null}
+	              ], 
+	              url_generation: {base_url: 'https://fonts.googleapis.com/css?family=$font', space_char: '+'}
+	            }
+	          },
+	          load_all_fonts: true,
+	          default_font_name: {type: 'google', name: 'Noto Sans'}
+	        }).bind('wfselectchange', function (event, fontInfo){
+	          console.log(event);
+	          $('p.webfont-preview-2').css(fontInfo);
+	        }).bind('wfselectdefault', function(event, fontInfo){
+	          console.log('default font url loaded');
+	        });
+	      });
+
+		</script>
+
+		==scripts-ext==
+		<script>==scripts-onload==</script>
+	</body>
+</html>

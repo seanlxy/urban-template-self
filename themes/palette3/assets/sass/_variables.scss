@@ -1,0 +1,92 @@
+
+$rgb-box-shadow-color: rgba(139, 136, 136, 0.7);
+
+//*****************************************************************************
+//*****************************************************************************
+
+//fonts
+$ff-notosans: 'Noto Sans', sans-serif;
+$ff-notoserif: 'Noto Serif', serif;
+$ff-muli: 'Muli';
+
+$base-font: $ff-notosans , sans-serif;
+$base-font-size: 14px;
+$base-line-height: 22px;
+$anchor-font-weight: 400;
+$heading-font:$ff-notoserif;
+$heading-font-weight: 400;
+
+$graphics-dir-path: '../../../global/graphics/' !default;
+$fonts-dir-path: '../../../../themes/global/assets/fonts/' !default;
+
+
+//*****************************************************************************
+//urban
+//*****************************************************************************
+
+//fonts
+
+$ff-merriweather: 'Merriweather', serif;
+$ff-fa: 'FontAwesome';
+
+//color
+
+$white: #FFFFFF;
+$black: #000000;
+$dark-blue: #0A1320;
+$dark-green: #586A35;
+$dark-purple: #380D4E;
+$hover-grey: #919191;
+$button-green: #94CC23;
+$text-grey: #535353;
+$hover-green: #ABD94E;
+$sub-nav-green: #88C161;
+$header-grey: #95989A;
+$body-grey: #F4F4F4;
+$nav-blue: #1E2D43;
+$nav-green: #63773c;
+$nav-purple: #4f126d;
+$btn-no-border: #191515;
+$separater-grey: #F4F4F4;
+$divider-grey: #D6D6D6;
+$mid-grey:#80878D;
+$border-grey: #E3E3E3;
+$form-border-grey: #D8D8D8;
+
+
+
+//color vars
+
+$header-bg-color: $dark-purple;
+$nav-bg-color: $nav-purple;
+$sub-nav-bg-color: $nav-blue;
+$accom-sub-nav-color: $dark-purple;
+
+$ql-bg-color: $dark-purple;
+
+$main-intro-color: $dark-purple;
+$main-intro-desc-color: $dark-purple;
+
+$h1-color: $dark-purple;
+$h2-color: $dark-purple;
+
+$footer-icon-color: $dark-purple;
+$footer-newsletter-btn-color: $dark-purple;
+$footer-nav-color: $dark-blue;
+$footer-testimonial-bg-color: $dark-purple;
+
+$gallery-arrow-color: $dark-purple;
+
+$blog-well-color: $dark-purple;
+$blog-well-item-color: $text-grey;
+$blog-well-item-hv-color: $hover-green;
+$blog-item-heading-color: $dark-purple;
+$blog-item-heading-hv-color: $hover-green;
+$blog-pagination-color: $dark-purple;
+$blog-pagination-hv-color: $hover-green;
+
+
+$review-quote-color: $dark-purple;
+$review-person-color: $dark-purple;
+
+$pika-date-picker-color: $dark-purple;

@@ -1,0 +1,69 @@
+// Icon fonts
+@font-face {
+    font-family: 'Glyphicons Regular';
+    src: url($fonts-dir-path+'glyphicons/regular/webfont.eot');
+    src: url($fonts-dir-path+'glyphicons/regular/webfont.eot?#iefix') format('embedded-opentype'),
+    url($fonts-dir-path+'glyphicons/regular/webfont.woff2') format('woff2'),
+    url($fonts-dir-path+'glyphicons/regular/webfont.woff') format('woff'),
+    url($fonts-dir-path+'glyphicons/regular/webfont.ttf') format('truetype'),
+    url($fonts-dir-path+'glyphicons/regular/webfont.svg#glyphiconsregular') format('svg')
+}
+
+@font-face {
+    font-family: 'Glyphicons Social';
+    src: url($fonts-dir-path+'glyphicons/social/webfont.eot');
+    src: url($fonts-dir-path+'glyphicons/social/webfont.eot?#iefix') format('embedded-opentype'),
+    url($fonts-dir-path+'glyphicons/social/webfont.woff2') format('woff2'),
+    url($fonts-dir-path+'glyphicons/social/webfont.woff') format('woff'),
+    url($fonts-dir-path+'glyphicons/social/webfont.ttf') format('truetype'),
+    url($fonts-dir-path+'glyphicons/social/webfont.svg#glyphicons_socialregular') format('svg')
+}
+
+// @font-face {
+//     font-family: 'ubuntubold';
+//     src: url($fonts-dir-path+'ubuntu/bold/webfont.woff2') format('woff2'),
+//          url($fonts-dir-path+'ubuntu/bold/webfont.woff') format('woff');
+//     font-weight: normal;
+//     font-style: normal;
+//     unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+
+// }
+
+
+
+
+// @font-face {
+//     font-family: 'ubuntubold_italic';
+//     src: url($fonts-dir-path+'ubuntu/boldi_talic/webfont.woff2') format('woff2'),
+//          url($fonts-dir-path+'ubuntu/boldi_talic/webfont.woff') format('woff');
+//     font-weight: normal;
+//     font-style: normal;
+//     unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+
+// }
+
+
+
+
+// @font-face {
+//     font-family: 'ubuntuitalic';
+//     src: url($fonts-dir-path+'ubuntu/italic/webfont.woff2') format('woff2'),
+//          url($fonts-dir-path+'ubuntu/italic/webfont.woff') format('woff');
+//     font-weight: normal;
+//     font-style: normal;
+//     unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+
+// }
+
+
+
+
+// @font-face {
+//     font-family: 'ubunturegular';
+//     src: url($fonts-dir-path+'ubuntu/regular/webfont.woff2') format('woff2'),
+//          url($fonts-dir-path+'ubuntu/regular/webfont.woff') format('woff');
+//     font-weight: normal;
+//     font-style: normal;
+//     unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+
+// }

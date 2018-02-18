@@ -1,0 +1,5 @@
+SetEnvIfNoCase X-Requested-With XMLHttpRequest ajax
+Order Deny,Allow
+Deny from all
+Allow from env=ajax
+ErrorDocument 403 /templates/403.html

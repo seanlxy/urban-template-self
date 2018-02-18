@@ -1,0 +1,41 @@
+<div class="row sortable-item clear">
+    <%
+
+        colCls += 'col-xs-12';
+
+        maxCols = app.config.maxCols;
+
+        if(numColumns > 1)  colCls = colCls+' col-sm-'+(maxCols/2);
+
+        if(numColumns > 1) colCls = colCls+' col-md-'+(maxCols/numColumns);
+
+
+
+    %>
+    <%  for (var i=1; i <= numColumns; i++){ i = (colIndex) ? colIndex : i %>
+        <div class="<%= colCls %> res-col sortable-item" id="<%= prefix %>col-<%= rowIndex %>-<%= i %>">
+            <ul class="action">
+                <li><input type="checkbox" class="col-merge" value="1"><li/>
+                <li><a href="#" title="drag to change the rank" class="move-col"><i class="glyphicon glyphicon-move"></i></a><li/>
+                <li><a href="#" title="click to remove section" data-to-remove=".res-col"  class="remove-col"><i class="glyphicon glyphicon-remove"></i></a><li/>
+            </ul>
+            <div class="editable-column-content" title="Click to edit this content section.">
+                <textarea id="<%= prefix %>content-<%= rowIndex %>-<%= i %>" name="<%= prefix %>content-<%= rowIndex %>-text[]">Column <%= i %></textarea>
+            </div>
+            <input type="hidden" value="<%= i %>" class="col-rank" name="<%= prefix %>content-<%= rowIndex %>-rank[]">
+            <input type="hidden" value="<%= colCls %>" name="<%= prefix %>content-<%= rowIndex %>-class[]" class="col-cls">
+            
+        </div>
+    <% }%>
+
+    <input type="hidden" value="<%= rowIndex %>" name="<%= prefix %>row-index[]">
+    <input type="hidden" value="<%= rowIndex + 1 %>" name="<%= prefix %>row-rank[]" class="row-rank">
+
+    <div class="clear"></div>
+
+    <ul class="roww action">
+        
+        <li><a href="#" title="drag to change the rank" class="move-col"><i class="glyphicon glyphicon-move"></i></a><li/>
+        <li><a href="#" title="click to remove row" data-to-remove=".row"  class="remove-col"><i class="glyphicon glyphicon-remove"></i></a><li/>
+    </ul>
+</div>

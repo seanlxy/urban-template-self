@@ -1,0 +1,10 @@
+/*.tipsy { padding: 5px; font-size: 11px; opacity: 0.8; filter: alpha(opacity=70); background-repeat: no-repeat;  background-image: url(images/tipsy-grey.png); }
+  .tipsy-inner { padding: 5px 8px 4px 8px; border:1px solid #aaa; background-color: white; color: black; max-width: 200px; text-align: center; }
+  .tipsy-inner { -moz-border-radius:5px; -webkit-border-radius:5px; }
+  .tipsy-north { background-position: top center; }
+  .tipsy-south { background-position: bottom center; }
+  .tipsy-east { background-position: right center; }
+  .tipsy-west { background-position: left center; }*/
+
+[data-toggle="tooltip"]{background:url(../images/info2.png) no-repeat;display:inline-block;vertical-align:text-top;width:25px;height:16px;cursor:help;}
+label[data-toggle="tooltip"]{background-image:none;width:auto;height:auto;}

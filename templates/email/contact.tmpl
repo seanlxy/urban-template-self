@@ -1,0 +1,442 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        
+        <meta property="og:title" content="{email_subject}">
+        
+        <title>{email_subject}</title>
+		
+	<style type="text/css">
+		#outlook a{
+			padding:0;
+		}
+		body{
+			width:100% !important;
+		}
+		.ReadMsgBody{
+			width:100%;
+		}
+		.ExternalClass{
+			width:100%;
+		}
+		body{
+			-webkit-text-size-adjust:none;
+		}
+		body{
+			margin:0;
+			padding:0;
+		}
+		img{
+			border:0;
+			height:auto;
+			line-height:100%;
+			outline:none;
+			text-decoration:none;
+		}
+		table td{
+			border-collapse:collapse;
+		}
+		#backgroundTable{
+			height:100% !important;
+			margin:0;
+			padding:0;
+			width:100% !important;
+		}
+
+		body,#backgroundTable{
+			/*@editable*/background-color:#fff;
+		}
+
+		#templateContainer{
+			/*@editable*/border:1px solid #fff;
+		}
+
+		h1,.h1{
+			color:#447C9D;
+			display:block;
+			font-family:Arial;
+			font-size:34px;
+			font-weight:bold;
+			line-height:100%;
+			margin-top:0;
+			margin-right:0;
+			margin-bottom:10px;
+			margin-left:0;
+			text-align:left;
+		}
+
+		h2,.h2{
+			color:#447C9D;
+			display:block;
+			font-family:Arial;
+			font-size:30px;
+			font-weight:bold;
+			line-height:100%;
+			margin-top:0;
+			margin-right:0;
+			margin-bottom:10px;
+			margin-left:0;
+			text-align:left;
+		}
+
+		h3,.h3{
+			color:#212121;
+			display:block;
+			font-family:Arial;
+			font-size:26px;
+			font-weight:bold;
+			line-height:100%;
+			margin-top:0;
+			margin-right:0;
+			margin-bottom:10px;
+			margin-left:0;
+			text-align:left;
+		}
+
+		h4,.h4{
+			color:#447C9D;
+			display:block;
+			font-family:Arial;
+			font-size:22px;
+			font-weight:bold;
+			line-height:100%;
+			margin-top:0;
+			margin-right:0;
+			margin-bottom:10px;
+			margin-left:0;
+			text-align:left;
+		}
+
+		#templatePreheader{
+			background-color:#fff;
+		}
+
+		.preheaderContent div{
+			color:#505050;
+			font-family:Arial;
+			font-size:10px;
+			line-height:100%;
+			text-align:left;
+		}
+
+		.preheaderContent div a:link,.preheaderContent div a:visited,.preheaderContent div a .yshortcuts {
+			color:#336699;
+			font-weight:normal;
+			text-decoration:underline;
+		}
+
+		#templateHeader{
+			background-color:#FFFFFF;
+			border-bottom:0;
+		}
+
+		.headerContent{
+			color:#202020;
+			font-family:Arial;
+			font-size:34px;
+			font-weight:bold;
+			line-height:100%;
+			padding:15px;
+			/*text-align:center;*/
+			vertical-align:middle;
+			height:90px;
+		}
+
+		.headerContent a:link,.headerContent a:visited,.headerContent a .yshortcuts {
+			color:#336699;
+			font-weight:normal;
+			text-decoration:underline;
+		}
+		#headerImage{
+			height:auto;
+			max-width:600px;
+		}
+
+		#templateContainer,.bodyContent{
+			background-color:#FFFFFF;
+		}
+
+		.bodyContent div{
+			color:#505050;
+			font-family:Arial;
+			font-size:12px;
+			line-height:150%;
+			text-align:left;
+		}
+
+		.bodyContent div a:link,.bodyContent div a:visited,.bodyContent div a .yshortcuts {
+			color:#336699;
+			font-weight:normal;
+			text-decoration:underline;
+		}
+		.bodyContent img{
+			display:inline;
+			height:auto;
+		}
+
+		#templateSidebar{
+			background-color:#FFFFFF;
+			border-left:0;
+		}
+
+		.sidebarContent div{
+			color:#505050;
+			font-family:Arial;
+			font-size:12px;
+			line-height:150%;
+			text-align:left;
+		}
+
+		.sidebarContent div a:link,.sidebarContent div a:visited,.sidebarContent div a .yshortcuts {
+			color:#336699;
+			font-weight:normal;
+			text-decoration:underline;
+		}
+		.sidebarContent img{
+			display:inline;
+			height:auto;
+		}
+
+		.leftColumnContent{
+			background-color:#FFFFFF;
+		}
+
+		.leftColumnContent div{
+			color:#505050;
+			font-family:Arial;
+			font-size:12px;
+			line-height:150%;
+			text-align:left;
+		}
+	
+		.leftColumnContent div a:link,.leftColumnContent div a:visited,.leftColumnContent div a .yshortcuts {
+			color:#336699;
+			font-weight:normal;
+			text-decoration:underline;
+		}
+		.leftColumnContent img{
+			display:inline;
+			height:auto;
+		}
+
+		.centerColumnContent{
+			background-color:#FFFFFF;
+		}
+	
+		.centerColumnContent div{
+			color:#505050;
+			font-family:Arial;
+			font-size:12px;
+			line-height:150%;
+			text-align:left;
+		}
+
+		.centerColumnContent div a:link,.centerColumnContent div a:visited,.centerColumnContent div a .yshortcuts {
+			color:#336699;
+			font-weight:normal;
+			text-decoration:underline;
+		}
+		.centerColumnContent img{
+			display:inline;
+			height:auto;
+		}
+	
+		.rightColumnContent{
+			background-color:#FFFFFF;
+		}
+
+		.rightColumnContent div{
+			color:#505050;
+			font-family:Arial;
+			font-size:12px;
+			line-height:150%;
+			text-align:left;
+		}
+
+		.rightColumnContent div a:link,.rightColumnContent div a:visited,.rightColumnContent div a .yshortcuts {
+			color:#336699;
+			font-weight:normal;
+			text-decoration:underline;
+		}
+		.rightColumnContent img{
+			display:inline;
+			height:auto;
+		}
+
+		#templateFooter{
+			background-color:#111111;
+			border-top:0;
+		}
+
+		.footerContent div{
+			color:#3083AB;
+			font-family:Arial;
+			font-size:12px;
+			line-height:125%;
+			text-align:left;
+		}
+
+		.footerContent div a:link,.footerContent div a:visited,.footerContent div a .yshortcuts {
+			color:#3083AB;
+			font-weight:normal;
+			text-decoration:underline;
+		}
+		.footerContent img{
+			display:inline;
+		}
+
+		#social{
+			background-color:#111;
+			border:0;
+		}
+
+		#social div{
+			text-align:center;
+		}
+
+		#utility{
+			background-color:#111;
+			border:0;
+		}
+
+		#utility div{
+			text-align:center;
+		}
+		#monkeyRewards img{
+			max-width:190px;
+		}
+
+		ul.details{
+			width:100%;
+			list-style:none;
+			margin:0 0 0 5px;
+			padding:0 0 0 5px;
+		}
+		ul.details li{
+			display:block;
+			width:100%;
+			margin-bottom:5px;
+			font-size:13px;
+		}
+		ul.details li strong, 	ul.details li span{
+			display:inline-block;
+		}
+		ul.details li strong{
+			width:160px;
+			text-align:left;
+		}
+		ul.details li span{
+			width:200px;
+		}
+
+</style></head>
+    <body>
+    	<center>
+        	<table border="0" cellpadding="0" cellspacing="0" height="100%" width="100%" id="backgroundTable">
+            	<tr>
+                	<td align="center" valign="top">
+                        <!-- // End Template Preheader \\ -->
+                    	<table border="0" cellpadding="0" cellspacing="0" width="600" id="templateContainer">
+                        	<tr>
+                            	<td align="center" valign="top">
+                                    <!-- // Begin Template Header \\ -->
+                                	<table border="0" cellpadding="0" cellspacing="0" width="600" id="templateHeader">
+                                        <tr>
+                                            <td class="headerContent">
+                                            	<!-- // End Module: Standard Header Image \\ -->
+                                            	<img src="{root}/graphics/logo.png">
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <!-- // End Template Header \\ -->
+                                </td>
+                            </tr>
+                        	<tr>
+                            	<td align="center" valign="top" colspan="2">
+                                    <!-- // Begin Template Body \\ -->
+                                	<table border="0" cellpadding="0" cellspacing="0" width="100%" id="templateBody">
+                                    	<tr style="display:table;">
+                                        	<td valign="top" colspan="2">
+                                            	<table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                                	<tr>
+                                                    	<td valign="top">
+                                                        	<table border="0" cellpadding="0" cellspacing="0" width="100%">
+                                                            	<tr>
+                                                                	<td valign="top" class="bodyContent">
+                                                        
+                                                                        <!-- // Begin Module: Standard Content \\ -->
+                                                                        <table border="0" cellpadding="20" cellspacing="0" width="100%">
+                                                                            <tr>
+                                                                                <td valign="top">
+						                                                            <div>
+						                                                                <h3 class="h3">{email_subject}</h3>
+						                                                            </div>
+						                                                            <div>
+						                                                            	<table border="0" cellpadding="5" cellspacing="0" width="100%">
+						                                                            		<tr>
+						                                                            			<td width="160"><strong>First Name:</strong></td>
+						                                                            			<td width="200">{first_name}</td>
+						                                                            			<td>&nbsp;</td>
+						                                                            			<td>&nbsp;</td>
+						                                                            		</tr>
+						                                                            		<tr>
+						                                                            			<td width="160"><strong>Last Name:</strong></td>
+						                                                            			<td width="200">{last_name}</td>
+						                                                            			<td>&nbsp;</td>
+						                                                            			<td>&nbsp;</td>
+						                                                            		</tr>
+						                                   
+						                                                            		<tr>
+						                                                            			<td><strong>Email:</strong></td>
+						                                                            			<td><a href="mailto:{email_address}">{email_address}</a></td>
+						                                                            			<td>&nbsp;</td>
+						                                                            			<td>&nbsp;</td>
+						                                                            		</tr>
+						                                                            		<tr>
+						                                                            			<td><strong>Phone/Mobile:</strong></td>
+						                                                            			<td>{contact_number}</td>
+						                                                            			<td>&nbsp;</td>
+						                                                            			<td>&nbsp;</td>
+						                                                            		</tr>
+						                                                            		<tr>
+						                                                            			<td><strong>Message:</strong></td>
+						                                                            			<td>{comments}</td>
+						                                                            			<td>&nbsp;</td>
+						                                                            			<td>&nbsp;</td>
+						                                                            		</tr>
+						                                                            		<tr>
+						                                                            			<td><strong>Date Enquired:</strong></td>
+						                                                            			<td>{date_enquired}</td>
+						                                                            			<td>&nbsp;</td>
+						                                                            			<td>&nbsp;</td>
+						                                                            		</tr>
+						                                                    
+						                                                            	</table>
+						                                                            </div>
+                                                                                </td>
+                                                                            </tr>
+                                                                        </table>
+                                                                        <!-- // End Module: Standard Content \\ -->
+                                                                        
+                                                                    </td>
+                                                                </tr>
+                                                            </table>
+                                                        </td>
+                                                    </tr>
+                                                </table>                                                
+                                            </td>
+                          
+                                        </tr>
+                                    </table>
+                                    <!-- // End Template Body \\ -->
+                                </td>
+                            </tr>
+                        </table>
+                        <br>
+                    </td>
+                </tr>
+            </table>
+        </center>
+    </body>
+</html>

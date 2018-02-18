@@ -1,0 +1,21 @@
+RewriteEngine on
+
+RewriteCond %{HTTP_HOST} ^site.com.sb [NC] 
+RewriteRule ^(.*)$ http://www.site.com.sb/cms [L,R=301]
+
+RewriteRule requests/service \/cms\/includes\/inc_files\/datamanager\/core\/system\.php [PT,L]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ /index.php/$1 [L] 
+
+
+ErrorDocument 404 /templates/404.html
+ErrorDocument 403 /templates/404.html
+
+#<LIMIT GET POST>
+	#order deny,allow
+	#deny from all
+	#allow from 114.23.241.67
+	#allow from 127.0.0.1
+#</LIMIT>

@@ -1,0 +1,302 @@
+/*
+ * Pikaday
+ * Copyright © 2014 David Bushell | BSD & MIT license | http://dbushell.com/
+ */
+
+// Variables
+// Declare any of these variables before importing this SCSS file to easily override defaults
+// Variables are namespaced with the pd (pikaday) prefix
+
+// Colours
+$pd-text-color: darkblue !default;
+$pd-title-color: darkblue !default;
+$pd-title-bg: #fff !default;
+$pd-picker-bg: #fff !default;
+$pd-picker-border: #ccc !default;
+$pd-picker-border-bottom: #bbb !default;
+$pd-picker-shadow: rgba(0,0,0,.5) !default;
+$pd-th-color: darkblue !default;
+$pd-day-color: #555650 !default;
+$pd-day-bg: #fff !default;
+$pd-day-hover-color: #fff !default;
+$pd-day-hover-bg: lightblue !default;
+$pd-day-today-color: #33aaff !default;
+$pd-day-selected-color: #fff !default;
+$pd-day-selected-bg: #33aaff !default;
+$pd-day-selected-shadow: #33aaff !default;
+$pd-day-disabled-color: #999 !default;
+$pd-week-color: #999 !default;
+
+// Font
+$pd-font-family: "Asap", sans-serif !default;
+
+
+.pika-single {
+    z-index: 9999;
+    display: block;
+    position: relative;
+    color: $pd-text-color;
+    background: $pd-picker-bg;
+    border: 1px solid $pd-picker-border;
+    border-bottom-color: $pd-picker-border-bottom;
+    font-family: $pd-font-family;
+    padding-right:8px;
+
+    &.is-hidden {
+        display: none;
+    }
+
+    &.is-bound {
+        position: absolute;
+        box-shadow: 0 5px 15px -5px $pd-picker-shadow;
+    }
+}
+
+// clear child float (pika-lendar), using the famous micro clearfix hack
+// http://nicolasgallagher.com/micro-clearfix-hack/
+.pika-single {
+    *zoom: 1;
+
+    &:before,
+    &:after {
+        content: " ";
+        display: table;
+    }
+
+    &:after { clear: both }
+}
+
+.pika-lendar {
+    float: left;
+    width: 240px;
+    margin: 8px;
+}
+
+.pika-title {
+    position: relative;
+    text-align: center;
+
+    select {
+        cursor: pointer;
+        position: absolute;
+        z-index: 9998;
+        margin: 0;
+        left: 0;
+        top: 5px;
+        filter: alpha(opacity=0);
+        opacity: 0;
+    }
+}
+
+.pika-label {
+    display: inline-block;
+    *display: inline;
+    position: relative;
+    z-index: 9999;
+    overflow: hidden;
+    margin: 0;
+    padding: 5px 3px;
+    font-size: 17px;
+    line-height: 20px;
+    font-weight: bold;
+    color: $pd-title-color;
+    background-color: $pd-title-bg;
+}
+
+.pika-prev,
+.pika-next {
+    display: block;
+    cursor: pointer;
+    position: relative;
+    outline: none;
+    border: 0;
+    padding: 0;
+    width: 10px;
+    height: 17px;
+    text-indent: 20px; // hide text using text-indent trick, using width value (it's enough)
+    white-space: nowrap;
+    overflow: hidden;
+    background-color: transparent;
+    background-position: center center;
+    background-repeat: no-repeat;
+    opacity: .5;
+    *position: absolute;
+    *top: 0;
+    margin-top:5px;
+
+    &:hover {
+        opacity: 1;
+    }
+
+    &.is-disabled {
+        cursor: default;
+        opacity: .2;
+    }
+}
+
+.pika-prev,
+.is-rtl .pika-next {
+    float: left;
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAARCAYAAAAL4VbbAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAK6wAACusBgosNWgAAABZ0RVh0Q3JlYXRpb24gVGltZQAwNy8xNC8xNpkA830AAAAcdEVYdFNvZnR3YXJlAEFkb2JlIEZpcmV3b3JrcyBDUzVxteM2AAABDUlEQVQokYWRsUoDQRCGvzmvjfgG4zv4GIJphCUo4SoROz2xE1PYiCA2EVOonbKdjYXgExisfILt0oYUNsJYOCdncp5b7T/7/T8zO2JmtB3RcAV8WIpl/g9YANtALhokawFL4A7oAO/Ac2OyaBgAJy7HQNdSnCzAouEcOHT5AmxailOAfA4cATsun4CepTir3nOHloBboO/1B6BvKX7WwzLRsArc18ARsDUPVsmXQNf1m6W42zQ0QAYUwND1mmi4Fg3SBEu1QdFwAey39lxdLMUD4NRlD3gUDZ3G5J+ChiPgzOWvf16A3bBXm2MMbFiKk0bYDQVw462+AoM/YTes872sZWDYCrvhGFixFMsv+xRkFBo1MvcAAAAASUVORK5CYII=');
+    *left: 0;
+    margin-left:5px;
+}
+
+.pika-next,
+.is-rtl .pika-prev {
+    float: right;
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAARCAYAAADkIz3lAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAK6wAACusBgosNWgAAABZ0RVh0Q3JlYXRpb24gVGltZQAwNy8xNC8xNpkA830AAAAcdEVYdFNvZnR3YXJlAEFkb2JlIEZpcmV3b3JrcyBDUzVxteM2AAABHUlEQVQokX3RQUvUQRgH4Ge2W3QRPIXsQCSh0VfoEAuFZCbRjmcv3bvoR+hj2EHwz3oRQpTw4D1UqKMk/0MnO+lVeD3sIG6728Achnl45zfvm3T7Cd8wiLbZMmV1sIUlbKZcFv4H9/ALz3CYcnk+CaaIkHJ5iiN08Ru9aJuLfyuKtjnHCi7xBHspl7kxWPFZzfoXL7Cfcnk8Biv+gQ+4rng35TJzl3EseC6v8BVzOMDnibDiL9iox++dKWgNn+pxG+tjFVMu77GLB4YTW422uRmBKZfXFT3CMd5F21yNfCbl0jOc0sOKlqNtru+K1Mks1stZnOBNtM3l/UidGnxQ0c/63Ahi2PCXmMcp3kbb/JnYr4ig29/R7X+MCNP2Lffbevj3rGC6AAAAAElFTkSuQmCC');
+    *right: 0;
+}
+
+.pika-select {
+    display: inline-block;
+    *display: inline;
+}
+
+.pika-table {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    border: 0;
+
+   
+
+    th,
+    td {
+       
+        padding: 0;
+    }
+
+    th {
+        width: 14.285714285714286%;
+        color: $pd-th-color;
+        font-size: 12px;
+        line-height: 25px;
+        font-weight: bold;
+        text-align: center;
+        text-transform: uppercase;
+        padding: 3px 0 10px 0;
+
+
+    }
+
+    abbr {
+        border-bottom: none;
+        cursor: help;
+    }
+}
+
+.pika-button {
+    cursor: pointer;
+    display: block;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    outline: none;
+    border: 0;
+    margin: 0;
+    width: 35px;
+    height: 35px;
+    padding: 5px;
+    color: $pd-day-color;
+    font-size: 12px;
+    line-height: 15px;
+    text-align: right;
+    background: $pd-day-bg;
+    border-top: 1px solid #f0f0f0;
+    border-left: 1px solid #f0f0f0;
+
+    .is-today & {
+        color: $pd-day-today-color;
+        font-weight: bold;
+    }
+
+    .is-selected & {
+        color: $pd-day-selected-color;
+        font-weight: bold;
+        background: $pd-day-selected-bg;
+        box-shadow: inset 0 1px 3px $pd-day-selected-shadow;
+    }
+
+    .is-disabled &,
+    .is-outside-current-month & {
+        pointer-events: none;
+        cursor: default;
+        color: $pd-day-disabled-color;
+        opacity: .4;
+        background: #f4f4f4;
+        // border-color: #f4f4f4;
+    }
+
+    &:hover {
+        color: $pd-day-hover-color;
+        background: $pd-day-hover-bg;
+        box-shadow: none;
+
+    }
+}
+
+.pika-table{
+    
+    tbody{
+        tr:nth-last-child(2), tr:last-child{
+            td{
+            
+                .pika-button{
+
+                    border-bottom: 1px solid #f0f0f0
+                }
+
+            }
+
+        }
+        
+        tr td:last-of-type:not(.is-empty):not(.is-disabled){
+            border-right: 1px solid #f0f0f0;
+        }
+
+        tr:last-child{
+            td{
+            
+                .pika-button{
+
+                    border-top:none;
+                    border-right: 1px solid #f0f0f0;
+                }
+
+                ~ td .pika-button{
+                    border-right: 1px solid #f0f0f0;
+                }
+
+            }
+
+        }
+
+
+        
+    }
+
+}
+
+.pika-week {
+    font-size: 11px;
+    color: $pd-week-color;
+}
+
+.is-inrange .pika-button {
+    background: #D5E9F7;
+}
+
+.is-startrange .pika-button {
+    color: #fff;
+    background: #33aaff;
+    box-shadow: none;
+    // border-radius: 3px;
+}
+
+.is-endrange .pika-button {
+    color: #fff;
+    background: #33aaff;
+    box-shadow: none;
+    // border-radius: 3px;
+}

@@ -1,0 +1,463 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta property="og:title" content="{email_subject_user}">
+    <script src="https://use.fontawesome.com/21ac8c2ccc.js"  type="text/javascript"></script>
+    <title><%= $campaign_name;%> - <%= $campaign_subject;%></title>
+    <style type="text/css">
+        .primary-color {color: <%= $primary_color;%>;}
+        .secondary-color {color: <%= $secondary_color;%>;}
+        #outlook a{
+            padding:0;
+        }
+        body{
+            width:100% !important;
+            font-family: Verdana, Sans-serif; 
+            font-size:15px;
+            background-color: <%= $secondary_color;%>;
+            color: <%= $primary_color;%>;
+        }
+        
+        body{
+            -webkit-text-size-adjust:none;
+        }
+        body{
+            margin:0;
+            padding:0;
+        }
+        p{
+        	margin-top: 10px;
+        	margin-bottom: 10px;
+            line-height: 24px;
+            color: <%= $secondary_color;%>;
+        }
+        a{
+            text-decoration: none;
+        }
+        h2{
+        	font-size: 30px;
+        	line-height: 42px;
+        	text-transform: capitalize;
+        	font-weight: 400;
+        	color:<%= $primary_color;%>;
+        }
+
+        h3{
+        	font-size: 26px;
+        	line-height: 42px;
+        	text-transform: capitalize;
+        	font-weight: 400;
+        	color:<%= $primary_color;%>;
+            margin: 0;
+        }
+
+        h4{
+        	font-size: 24px;
+        	text-transform: capitalize;
+        	font-weight: 400;
+        	color:<%= $primary_color;%>;
+        }
+        h4>a{
+            color:<%= $primary_color;%> !important;
+        }
+
+        h4>a:hover{
+            color:<%= $primary_color;%>;
+        }
+
+        h5{
+            font-size: 20px;
+            line-height: 36px;
+            text-transform: capitalize;
+            font-weight: 400;
+            color:<%= $primary_color;%>;
+            margin: 0px;
+        }
+
+        img{
+            border:0;
+            height:auto;
+            line-height:100%;
+            outline:none;
+            text-decoration:none;
+        }
+        table td{
+            border-collapse:collapse;
+        }
+        #backgroundTable{
+        	height:100% !important;
+            margin:0;
+            padding:0;
+            width:100% !important;
+        }
+        #templateContainer{
+        	margin:0px auto 30px;
+        	background-color: #f5f5f5;
+        	max-width: 600px !important;
+        	width: 600px !important;
+        }
+        #templateHeader{
+        	background: #FFFFFF;
+        	padding:20px 20px 10px 20px;
+        }
+        #templateFooter{
+        	background-color: <%= $primary_color;%>;
+        	padding:20px 20px 50px 20px;
+        	color:#FFFFFF !important;
+        }
+        #templateBody tr td{
+        	padding:20px;
+        }
+        #templateBody tr td.heroshot{
+        	padding:0px;
+        }
+       
+		#templateFooter h2{
+			text-transform: uppercase;
+			color:#FFFFFF !important;
+		}
+		#templateFooter p {
+			margin-top: 15px;
+			margin-bottom: 15px;
+		}
+        #templateFooter a{
+        	color:#FFFFFF;
+        	text-decoration: none;
+        	cursor: pointer;
+        }
+		#templateFooter .footer-social{
+			list-style: none;
+			padding:0px;
+		}
+		#templateFooter .footer-social a{
+			display: inline-block;
+		}
+        #templatefooter-cta{
+            padding:20px;
+            width: 100%;
+        }
+        .bg-red{
+            background: <%= $primary_color;%>;
+        }
+        .bg-white{
+        	background: #FFFFFF;
+        }
+        .bg-grey{
+        	background: #f5f5f5;
+        }
+        .text-right{
+        	text-align: right;
+        }
+        .text-center{
+        	text-align: center;
+        }
+        .text-bold{
+        	font-weight: 700;
+        }
+        .text-red{
+        	color: <%= $primary_color;%>;
+        }
+        .text-blue{
+        	color: <%= $secondary_color;%>;
+        }
+        .text-grey{
+        	color: <%= $primary_color;%>;
+        }
+        .text-light-grey{
+            color: #898a8d;
+        }
+        .link-red{
+        	color: <%= $primary_color;%>;
+        	text-decoration:none;
+        }
+        .link-red:hover{
+        	color: <%= $secondary_color;%>;
+        	text-decoration:none;
+        }
+        .link-blue{
+        	color: <%= $secondary_color;%>;
+        	text-decoration:none;
+        }
+        .link-blue:hover{
+        	color: <%= $primary_color;%>;
+        	text-decoration:none;
+        }
+
+        .link-white{
+            color: #FFFFFF;
+            text-decoration:none;
+        }
+        .link-white:hover{
+            color: #FFFFFF;
+            text-decoration:underline;
+        }
+
+        .campaign_intro{
+        	font-size: 17px;
+        	line-height: 28px;
+        	margin-top: 15px;
+        	margin-bottom: 15px;
+        }
+        .email-body-footer{
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+        .email-item{
+            background: #FFFFFF;
+            padding-bottom: 30px;
+        }
+        .email-item p, .email-item h4{
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+        .email-item h4{
+            margin: 20px;
+        }
+        .email-item .special-note{
+            margin-bottom: 0px;
+        }
+
+        .email-item .star-rating{
+            font-size: 20px;
+            color: #e8b20e;
+        }
+        .email-item .summary-item{
+            margin-top: 0px;
+            margin-bottom: 0px;
+        }
+        .email-item .summary-item span.label{
+            font-size: 15px;
+            color:#898a8d;
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+        .email-item .summary-item span.value{
+            font-size: 15px;
+            color:<%= $secondary_color;%>;
+            text-transform: capitalize;
+            font-weight: 400;
+        }
+        .email-item .summary-item.item-inline{
+            display: inline-block;
+            padding: 5px 10px;
+            color:<%= $secondary_color;%>;
+        }
+
+        .email-item .summary-item.item-inline span.label{
+            color: <%= $primary_color;%>;
+        }
+
+        .email-item .spec-list > span{
+            font-size: 15px;
+            font-weight: 700;
+        }
+        .email-item .spec-list{
+            padding:10px 0;
+        }
+        
+        .email-item .btn-wrapper{
+            padding: 15px 20px 0px;
+        }
+        #templatefooter-cta{
+            border-radius: 5px;
+            -webkit-border-radius: 5px;
+        }
+        #templatefooter-cta tr td p{
+            margin-top:0px;
+            margin-bottom:0px;
+        }
+        #templatefooter-cta .btn{
+            margin:0px;
+        }
+        .img__image__bg{
+            display:none;
+        }
+    </style>
+    <!--[if gte mso 9]>
+        <style type="text/css">
+            .img__image__bg{
+                display:block !important;
+            }
+            .img__image{
+                display:none !important;
+            }
+        </style>
+    <![endif]-->
+</head>
+<body style="background-color:<%= $secondary_color;%>;">
+    <table border="0" cellpadding="0" cellspacing="0" height="100%" width="100%" id="backgroundTable">
+        <tr>
+            <td align="left" valign="top" style="text-align: center;">
+                <!-- // End Template Preheader \\ -->
+                <table border="0" cellpadding="0" cellspacing="0" width="600" id="templateContainer" bgcolor="#f5f5f5" align="center">
+                    <tr>
+                        <td align="left" valign="top">
+                            
+                            <table border="0" cellpadding="10" cellspacing="0" width="100%" bgcolor="<%= $secondary_color;%>">
+                                <tr>
+                                    <td class="headerContent" valign="middle">
+                                        <p style="color: #FFFFFF; font-size:12px; line-height: 16px;"><%= $campaign_preview_note;%></p>
+                                    </td>
+                                    <td valign="middle" class="text-right"  width="220" style="font-size:12px;">
+                                        <a href="*|ARCHIVE|*" style="color: #FFFFFF;" class="link-white">View this email in your browser</a>
+                                    </td>
+                                </tr>
+                            </table>
+                            <!-- // Begin Template Header \\ -->
+                            <table border="0" cellpadding="0" cellspacing="0" width="100%" id="templateHeader" bgcolor="#FFFFFF">
+                                <tr>
+                                    <td colspan=3 class="headerContent" valign="middle" width="173">
+                                        <a href="<%= $root %>">
+                                            <img src="<%= $root %><%= $company_logo %>" alt="<%= $campaign_name;%>" style="display:block;width:130px;"/>
+                                        </a>
+                                    </td>
+                                </tr>
+                            </table>
+                            <!-- // End Template Header \\ -->
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <!-- // Begin Template Body \\ -->
+                            <table border="0" cellpadding="0" cellspacing="0" width="100%" id="templateBody" bgcolor="#FFFFFF">
+                                <tr>
+                                    <td valign="top" class="text-center heroshot" style="padding:0px;">
+                                        <img src="<%= $root %><%= $campaign_photo %>" width="100%">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td valign="top" style="padding:20px;text-align: center;">
+                                        <h2><%= $campaign_heading %></h2>
+                                        <p class="campaign_intro"><%= $campaign_details %></p>
+                                    </td>
+                                </tr>
+                            </table>
+                            <table border="0" cellpadding="0" cellspacing="0" width="100%" id="templateBodyItems">
+                                <%  foreach($sections as $section){
+                                        $section = get_object_vars($section);
+                                %>
+	                                <tr>
+	                                    <td valign="top" style="padding:20px 20px;text-align: center;">
+	                                        <h3><%= $section['heading']; %></h3>
+	                                    </td>
+	                                </tr>
+                                    <%  $items = $section['bodyItems'];
+                                        foreach($items as $item){ 
+                                            $item = get_object_vars($item);
+                                            $type = $item['type'];
+                                            $rate_suffix = '';
+
+                                        if($type == 'blogs')
+                                        {
+                                            $item_base_url = (!empty($item['uri'])) ? $page_blog.$item['uri'] : $page_blog;
+                                        }
+                                        else{
+                                            $item_base_url = (!empty($item['uri'])) ? $root.$item['uri'] : $root;
+                                        }
+
+                                        $item_price_cls = ($type == 'trips' && $item['tripOnSpecial'] == 'Y') ? ' price-special' : '';
+                                        $item_price_bg = ($type == 'trips' && $item['tripOnSpecial'] == 'Y') ? '<%= $primary_color;%>' : '<%= $secondary_color;%>';
+
+                                        $cell_bg_color = "#FFFFFF";
+
+                                        if(!empty($rate_suffix) && $type != 'hotels'){
+                                            $cell_bg_color = ($type == 'trips' && $item['tripOnSpecial'] == 'Y') ? '<%= $primary_color;%>' : '<%= $secondary_color;%>';
+                                        }
+                                    %>
+                                    <tr>
+                                        <td valign="top" style="padding:20px 20px;text-align: center;">
+                                            <table border="0" class="email-item" cellpadding="0" cellspacing="0" width="100%">
+                                                <tr>
+                                                    <td bgcolor="#FFFFFF" style="text-align: center;">   
+                                                        <div class="image__bg" style="height:320px; background-repeat:no-repeat; background-size:cover; background-position: center; background-image: url(<%= $root %><%= $item['thumbPhoto'] %>);">
+                                                        </div>
+                                                        <img <%= $type %> class="img__image__bg" src="<%= $root %><%= $item['thumbPhoto'] %>" title="<%= $item['label'] %>" alt="<%= $item['label'] %>"/>
+                                                        <h4>
+                                                            <a href="<%= $item_base_url %>" target="_blank" style="color:<%= $primary_color;%>">
+                                                            <%= $item['label'] %></a>
+                                                        </h4>
+                                                        <% if($type == 'accommodations'){ %>
+                                                            <p style="font-weight: 700;">From $<%= $item['rate']; %><%= $rate_suffix; %></p>
+                                                            <p style="line-height: 32px;">
+                                                                <% if(!empty($item['sqm'])) { %>
+                                                                <span style="display: inline-block;padding: 5px 0px;margin:0px;"><span class="text-bold secondary-color">Area:</span><%= $item['sqm'] %>m<sup>2</sup></span>
+                                                                &nbsp;
+                                                                <% } %>
+                                                                <% if(!empty($item['beds'])) { %>
+                                                                <span style="display: inline-block;padding: 5px 0px;margin:0px;"><span class="text-bold secondary-color">Beds:</span><%= $item['beds'] %></span>
+                                                                &nbsp;
+                                                                <% } %>
+                                                                <% if(!empty($item['pax'])) { %>
+                                                                <span style="display: inline-block;padding: 5px 0px;margin:0px;"><span class="text-bold secondary-color">Max Guests:</span><%= $item['pax'] %></span>
+                                                                &nbsp;
+                                                                <% } %>
+                                                            </p>
+                                                        <% } %>
+                                                        <% if(!empty($item['details'])) { %>
+                                                            <p><%= (strlen($item['details']) > 250) ? substr( $item['details'],0,250)."..." : $item['details']; %></p>
+                                                        <% } %>
+                                                        <% if(!empty($item['introduction'])) { %>
+                                                            <p class="text-blue"><%= $item['introduction']; %></p>
+                                                        <% } %>
+                                                        <div class="btn-wrapper">                                                   
+                                                            <a href="<%= $item_base_url; %>" target="_blank">
+                                                                <img src="<%= $root %>/themes/global/graphics/beamer/btn-more.png" alt="Find out more" title="Find Out More"/>
+                                                            </a>
+                                                        </div>                                                    
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                    <% } %>
+                                <% } %>
+                                <% if(!empty($campaign_terms)){ %>
+                                <tr>
+                                    <td valign="top" class="text-center" style="padding:30px 20px;">
+                                        <div class="email-body-footer">
+                                            <h5>Terms & Conditions</h5>
+                                            <%= $campaign_terms %>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <% } %>
+                            </table>
+                            <!-- // End Template Body \\ -->
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="left" valign="top">
+                            <!-- // Begin Template Header \\ -->
+                            <table border="0" cellpadding="0" cellspacing="0" width="100%" id="templateFooter" style="padding: 20px;">
+                                <tr>
+                                	<td class="text-center" style="color:#FFFFFF;">
+                                		<h2 style="color:#FFFFFF;">Get in touch</h2>
+                                		<p style="color:#FFFFFF;"><%= nl2br($company_address) %> <br>
+                                            <span class="text-bold">E:</span> <a href="mailto:<%= $company_email %>" class="link-red"><%= $company_email %></a><br>
+                                            <span class="text-bold">T:</span> <a href="tel:<%= $company_phone %>" class="link-red"><%= $company_phone %></a><br>
+                                        </p>
+                                	</td>    
+                                </tr>
+                                <tr>
+                                	<td class="text-center" style="padding-bottom: 30px;">
+                                		<p class="footer-social">
+                                		<% foreach($social_links as $social_link){ %>
+											    <a href="<%= $social_link['url'] %>" title="<%= $social_link['title'] %>" target="_blank">
+                                                    <img src="<%= $root %><%= $social_link['icon_path'] %>" title="<%= $social_link['title'] %>" alt="<%= $social_link['title'] %>"/>
+                                                </a> 
+                                        <% } %>
+										</p>
+                                	</td>    
+                                </tr>
+                            </table>
+                            <!-- // End Template Header \\ -->
+                        </td>
+                    </tr>
+                </table>
+                <br>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>
